@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html id="html" lang="bs">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	
+ 	<!-- Bootstrap linkovi -->
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+	
+	<!-- Jquery link -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ 	<!-- Stylesheet specijalan za ovaj index -->
+	<link rel="stylesheet" type="text/css" href="stilovi/style.css">
+
+	<!-- Ikonica u tabu pretraživača -->
+	<link rel="shortcut icon" href="ikonica/ikonaTransparentna.png">
+
+	<!-- Naslov u tabu pretraživača -->
+	<title>Kružići</title>
+
+</head>
+<body>
+
+	<div id="navigacija" class="container">
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<!-- Dropdown dugme uzeto sa linka: https://getbootstrap.com/docs/5.0/components/dropdowns/ -->
+				<div class="btn-group">
+				  <button id="linkSadrzajCanvasa" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onclick="prikaziSadrzajCanvasa()">NOVA IGRA</button>
+				  <ul class="dropdown-menu">
+				    <li class="elementNava"><a id="lagano" class="dropdown-item" onclick="pokreniIgru('Lagano')">Lagano</a></li>
+				    <li class="elementNava"><a id="normalno" class="dropdown-item" onclick="pokreniIgru('Normalno')">Normalno</a></li>
+				    <li class="elementNava"><a id="tesko" class="dropdown-item" onclick="pokreniIgru('Tesko')">Teško</a></li>
+				  </ul>
+				</div>
+	            <button id="linkUpute" type="button" class="btn btn-primary" onclick="prikaziUpute()">UPUTE</button>
+	            <button id="linkInfoProjekta" type="button" class="btn btn-primary" onclick="prikaziInfoProjekta()">O PROJEKTU</button>
+	            <button id="tema" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Promijeni temu" onclick="promijeniTemu()">
+	            	<i class="bi bi-brightness-high-fill"></i>
+	            </button>
+			</div>
+		</div>
+	</div>
+
+	<div id="dobrodoslica" class="container">
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<h1>Dobrodošli u igricu <b>KRUŽIĆI</b>.</h1>
+				<img src="ikonica/ikonaTransparentna.png">
+			</div>
+		</div>
+	</div>
+
+	<div id="sadrzaj_canvas" class="container-fluid">
+		<div class="row justify-content-center">
+			<canvas id="canvas"></canvas>
+		</div>
+		<p id="brojOsvojenihBodova"></p>
+	</div>
+
+	<div id="upute" class="container">
+		<div class="row justify-content-center">
+			<div id="okvirUpute" class="col-11 col-md-9 col-lg-7 col-xl-5">
+				<h3>Pravila igre: </h3>
+				<ul>
+					<li>
+						Na početku igre generiše se kružić na sredini platna
+					</li>
+					<li>
+						Igra počinje kada u platnu pomjerite miš
+					</li>
+					<li>
+						Kružić prati kretanje vašeg miša 
+					</li>
+					<li>
+						Van platna se istovremeno generišu sporedni kružići te kreću se prema platnu različitim brzinama
+					</li>
+					<li>
+						Ukoliko glavni kružić dodije sporedni kružić manje veličine, tada se glavni kružić i broj bodova povećavaju
+					</li>
+					<li>
+						Ukoliko glavni kružić dodije sporedni kružić veće veličine, tada igra završava
+					</li>
+					<li>
+						Pobjeda se ostvaruje ako je glavni kružić veći od platna
+					</li>
+					<li>
+						Ukoliko glavni kružić dodije <em>specijalni</em> kružić dešava se jedan od sljedeća 4 scenarija:
+						<ol>
+							<li>
+								Brzina kretanja sporednih kružića se poveća duplo u narednih 10 sekundi
+							</li>
+							<li>
+								Glavni kružić postaje duplo veći
+							</li>
+							<li>
+								Glavni kružić postaje duplo manji
+							</li>
+							<li>
+								Smjer kretanja sporednih kružića se mijenja
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="info_projekta" class="container">
+		<div class="row justify-content-center">
+			<div id="okvirInfoProjekta" class="col-10 col-md-8 col-lg-6 col-xl-4">
+				<h3>O projektu </h3>
+				<ul>
+					<li>Predmet: Web programiranje
+						<ul class="lista">
+							<li>
+								Profesor: prof. dr. Elmedin Selmanović
+							</li>
+							<li>
+								Asistent: dr. Sead Delalić
+							</li>
+						</ul>
+					</li>
+					<li>
+						Studij: Teorijska kompjuterska nauka
+					</li>
+					<li>
+						Fakultet: Prirodno-matematički fakultet Sarajevo
+					</li>
+					<li>
+						Naziv projekta: Kružići
+					</li>
+					<li>Podaci o autoru:
+						<ul class="lista">
+							<li>
+								Ime i prezime: Edin Smajić
+							</li>
+							<li>Broj telefona:
+								<a href="tel:+38761075705">+38761075705</a>
+							</li>
+							<li>Email adresa:
+								<a href="mailto:smajic.edin.7@gmail.com">smajic.edin.7@gmail.com</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Moje skripte -->
+	<script type="text/javascript" src="skripte/kruzici.js"></script>
+	<script type="text/javascript" src="skripte/klikovi.js"></script>
+
+	<!-- javascript kod, potreban za tooltip -->
+	<script type="text/javascript">
+		var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+		var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		  return new bootstrap.Tooltip(tooltipTriggerEl)
+		})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	height: 100%;
+	background-repeat: no-repeat;
+	background-color: #2884b8;
+	background-image: linear-gradient(315deg, #2884b8 0%, #d1bad2 74%);
+}
+
+body {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0); /* Bootstrap stavi bijelu boju pozadine po defaultu, pa sam stavio da bude providna */
+}
+
+#navigacija {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.btn {
+	width: 125px;
+	border-radius: 5px;
+}
+
+.btn:hover {
+	background-color: gold;
+	color: black;
+}
+
+.btn:focus {
+	box-shadow: none;
+}
+
+.show, .elementNava {
+	text-align: center;
+	width: 125px !important;
+	min-width: 125px;
+	border-radius: 5px;
+}
+
+.dropdown-item:hover {
+	border: solid 1px black;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+#lagano:hover {
+	background-color: lime;
+}
+
+#normalno:hover {
+	background-color: yellow;
+}
+
+#tesko:hover {
+	background-color: red;
+}
+
+#sadrzaj_canvas, #upute, #info_projekta {
+	display: none;
+}
+
+#dobrodoslica {
+	color: white;
+}
+
+#canvas {
+    width: 900px;
+    height: 570px;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    cursor: crosshair;
+}
+
+p {
+	color: white;
+	font-size: 24px;
+}
+
+#upute, #info_projekta {
+	text-align: left;
+	color: black;
+}
+
+#info_projekta a {
+	text-decoration: none;
+	color: #0d6efd;
+}
+
+#info_projekta a:hover {
+	color: gold;
+}
+
+#okvirUpute, #okvirInfoProjekta {
+	background-color: white;
+	border: solid 2px black;
+	padding: 10px;
+}
+
+.lista {
+	list-style-type: square;
+}
+
+#tema {
+	background-color: white;
+	color: black;
+	width: 40px;
+	border-radius: 5px;
+	border: solid 1px black;
+}
+
+#tema:hover {
+	border: solid 1px black;
+	background-color: gold;
+	color: black;
+}
+
+#tema:focus {
+	box-shadow: none;
+}
+
+/* ručno mijenjanje veličine platna canvasa u ovisnosti od veličine ekrana */
+@media screen and (min-width: 992px) {
+  	#canvas {
+	    width: 900px;
+	    height: 570px;
+	}
+}
+
+@media screen and (max-width: 992px) {
+  	#canvas {
+	    width: 748px;
+	    height: 500px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+  	#canvas {
+	    width: 556px;
+	    height: 400px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#canvas {
+	    width: 450px;
+	    height: 300px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#canvas {
+	    width: 350px;
+	    height: 300px;
+	}
+}
