@@ -1,2 +1,2 @@
-# portfolio-stranica
-Projekat iz predmeta Web programiranje na temu "Portfolio stranica".
+# igrica-kruzici
+Projekat iz predmeta Web programiranje na temu "Igrica kružići, slična igri Agar.io".
